@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
- def new
+ before_filter :require_user_signin!, only: [:show, :edit, :update]
+  
+  def new
     @user = User.new
   end
 
@@ -13,9 +15,28 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def show
+    @user = User.find(params[:id])
+    render :show
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+    render :edit
+  end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_url(@user) 
+    else
+      flash.now[:errors] = @user.errors.full_messages
+      render :edit
+    end
+  end
   private
   def user_params
-    params.require(:user).permit(:password, :username)
+    params.require(:user).permit(:password, :username, :avator)
   end
 end
