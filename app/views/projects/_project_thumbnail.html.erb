@@ -1,1 +1,25 @@
-test
+<div class="project-thumbnail thumbnail">
+<%= image_tag project.project_photo.url(:small) %>
+  <div class="caption">
+    <div class="description">
+      <h5><%= link_to project.title, project_url(project) %></h5>
+      <p>By <%= project.creator.username%></p>
+      <p><%= project.description %></p>  
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="<%= project.funded_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.funded_percentage %>%;">
+      </div>
+    </div>
+    <ul class="project-stat">  
+      <li>
+        <%= project.funded_percentage.to_i %>%
+      </li>  
+      <li>
+        pledged: <%= project.back_total%>
+      </li>
+      <li>
+        <%= project.end_date%>
+      </li>
+    </ul>
+  </div>
+</div>

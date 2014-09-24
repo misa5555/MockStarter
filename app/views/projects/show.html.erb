@@ -1,4 +1,13 @@
 <h3><%= @project.title %></h3>
+
 <br>
-<%= @project.description %>
+<ul>
+  <li> <%= image_tag @project.project_photo.url(:big) %></li>
+  <li>Description:: <%= @project.description %></li>
+  <li>Back Total:: <%= @project.back_total%></li>
+  <li>Number of Backers:: <%= @project.backers.count %></li>
+  <li><%= tagname %></li>
+</ul>
+<%= link_to "edit this project", edit_project_url(@project) %>
+<%= link_to "back this project", new_project_back_url(@project) %>
 <%= link_to "back to home", root_url %>
