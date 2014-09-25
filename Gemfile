@@ -28,3 +28,10 @@ group :development, :test do
 end
 # for heroku
 gem 'newrelic_rpm'
+
+gem "figaro"
+
+# for photo uploading
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'backbone-on-rails'

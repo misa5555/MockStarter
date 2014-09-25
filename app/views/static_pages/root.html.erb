@@ -1,8 +1,4 @@
 <h1>Popular Projects</h1>
 <% @popular_projects.each do |project| %>
-  <div class="project_thumbnail">
-    <%= link_to project.title, project_url(project) %>
-    <%= project.target_amount %>
-    <%= project.end_date%>
-  </div> 
+  <%= render "projects/project_thumbnail", project: project%>
 <% end %>  

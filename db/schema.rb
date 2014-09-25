@@ -11,54 +11,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140923070054) do
+ActiveRecord::Schema.define(version: 20140924052019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "entries", force: true do |t|
-    t.string   "guid",         null: false
-    t.string   "link",         null: false
-    t.string   "title",        null: false
-    t.datetime "published_at", null: false
-    t.integer  "feed_id",      null: false
-    t.text     "json",         null: false
+  create_table "backs", force: true do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "project_id", null: false
+    t.integer  "amount",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "entries", ["feed_id"], name: "index_entries_on_feed_id", using: :btree
-  add_index "entries", ["guid"], name: "index_entries_on_guid", unique: true, using: :btree
-
-  create_table "feeds", force: true do |t|
-    t.string   "url",        null: false
-    t.string   "title",      null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "feeds", ["url"], name: "index_feeds_on_url", unique: true, using: :btree
 
   create_table "projects", force: true do |t|
-    t.string   "title",         null: false
-    t.integer  "target_amount", null: false
-    t.date     "start_date",    null: false
-    t.date     "end_date",      null: false
+    t.string   "title",                      null: false
+    t.integer  "target_amount",              null: false
+    t.date     "end_date",                   null: false
     t.integer  "category_id"
-    t.integer  "creator_id",    null: false
+    t.integer  "creator_id",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "tag_id"
+    t.string   "project_photo_file_name"
+    t.string   "project_photo_content_type"
+    t.integer  "project_photo_file_size"
+    t.datetime "project_photo_updated_at"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
   add_index "projects", ["creator_id"], name: "index_projects_on_creator_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "username",        null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
+    t.string   "username",            null: false
+    t.string   "password_digest",     null: false
+    t.string   "session_token",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avator_file_name"
+    t.string   "avator_content_type"
+    t.integer  "avator_file_size"
+    t.datetime "avator_updated_at"
+    t.text     "description"
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree

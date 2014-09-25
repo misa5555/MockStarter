@@ -1,16 +1,18 @@
-$bgDefault      : #4e7fb6;
-$bgHighlight    : #7b7aad;
-$colDefault     : #ecf0f1;
+$bgDefault      : white;
+$bgHighlight    : lightgray;
+$colDefault     : black;
 $colHighlight   : #ecdbff;
 
 .navbar-default {
-  background: linear-gradient(to bottom,#27709b 0,#24688f 100%);
+  // background: linear-gradient(to bottom,#27709b 0,#24688f 100%);
+  background: white;
   background-color: $bgDefault;
   border-color: $bgHighlight;
   .navbar-brand {
     color: $colDefault;
-    &:hover, &:focus {
-      color: $colHighlight; }}
+    // &:hover, &:focus {
+    //   color: $colHighlight; }
+  }
   .navbar-text {
     color: $colDefault; }
   .navbar-nav {

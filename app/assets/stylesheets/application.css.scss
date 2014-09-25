@@ -15,6 +15,105 @@
 // @import 'bootstrap-sass';
 @import "font-awesome";
 
+$startgreen : #33FF33;
+
+#mock{
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+  color : $startgreen;
+}
+#starter{
+  font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+}
+
 body {
-    padding-top: 60px;
+  padding-top: 60px;
+  padding-left: 30px;
+}
+
+#header{
+  height: 20px;
+}
+.panel-spaced {
+   margin-left: 10px;
+}
+
+.well-unspaced {
+  margin-top: 0px;
+}
+
+.project-thumbnail{
+  width: 320px;
+  height: 470px;
+  float: left;
+  margin: 20px;
+}
+
+.description{
+  color: gray;
+}
+
+.progress{
+ height: 10px;
+  margin: 1px;
+}
+.progress-bar{
+  background: $startgreen;
+}
+
+ul.project-stat {
+}
+ul.project-stat li{
+  width: 100px;
+  display :inline;
+}
+// project show page
+.project-container{
+  width: 100%;
+}
+
+.project-header{
+  width: 960px; 
+  margin: 0 auto; 
+  background: white;
+}
+// project title
+.project-header h2 {
+  width: 800px;
+  padding: 20px;
+  margin: 0 auto;
+}
+//project authorname
+.project-header h4 {
+  width: 200px;
+  margin: 0 auto;
+}
+
+.project-content{
+  width: 960px;
+  margin: 0 auto;
+  background: white;
+}
+.project-category-header{
+  height: 50px;  
+}
+#project-nav{
+  width: 800px;  
+}
+.project-category{
+  display: inline;
+  float:right;
+}
+.current-content{
+  width: 600px;
+  float: left;
+}
+
+.project-status{
+  width: 250px;
+  float: left;
+  padding-left: 30px;
+}
+
+.project-status-item h1{
+  margin: 0px;
 }

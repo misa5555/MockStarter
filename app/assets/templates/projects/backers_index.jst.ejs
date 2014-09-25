@@ -1,0 +1,7 @@
+<h3>Backers</h3>
+<% backers.each(function( backer ){ %>
+  <div class="backer">
+  <img src="<%= backer.get('avator_url')%>"> 
+  <%= backer.escape("username") %>
+  </div>
+<% }); %>

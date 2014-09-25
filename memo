@@ -1,0 +1,8 @@
+
+<div class="project-image">
+<%= project.get('big') %>
+</div>
+<div>
+  <h3>Description</h3> 
+  <%= project.description %>
+</div>
