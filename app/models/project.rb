@@ -9,14 +9,17 @@ class Project < ActiveRecord::Base
   belongs_to :tag
 
   has_many :backs 
+  
   has_many(
     :backers,
     through: :backs,
     source: :user
   )
   
+  has_many :comments
+  
   has_attached_file :project_photo, :styles => {
-    big: "600x600>",
+    big: "400x400>",
     small: "305x225#",
   }
   validates_attachment_content_type(

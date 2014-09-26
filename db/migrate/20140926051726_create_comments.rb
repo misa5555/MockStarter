@@ -6,7 +6,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :project_id, null: false
       t.timestamps
     end
-    add_index "comments", ["author_id"], name: "index_comments_on_author_id", unique: true, using: :btree
-    add_index "comments", ["project_id"], name: "index_comments_on_project_id", unique: true, using: :btree
+    add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
+    add_index "comments", ["project_id"], name: "index_comments_on_project_id", using: :btree
   end
 end

@@ -6,15 +6,8 @@ BigStart.Routers.Router = Backbone.Router.extend({
 
   routes: {
     '': 'projectShowHome',
-    'backers':'projectBackerIndex'
-  },
-
-  projectBackerIndex: function() {
-    var backers = this.project.backers();
-    var backerIndexView = new BigStart.Views.BackersIndex({
-      collection: backers
-    });
-    this._swapView(backerIndexView);
+    'backers':'projectBackerIndex',
+    'comments' : 'projectCommentIndex'
   },
   
   projectShowHome: function() {
@@ -22,6 +15,22 @@ BigStart.Routers.Router = Backbone.Router.extend({
       model: this.project
     });
     this._swapView(homeView);
+  },
+
+  projectBackerIndex: function() {
+    var backers = this.project.backers();
+    var backersIndexView = new BigStart.Views.BackersIndex({
+      collection: backers
+    });
+    this._swapView(backersIndexView);
+  },
+  
+  projectCommentIndex: function() {
+    var comments = this.project.comments();
+    var commentsIndexView = new BigStart.Views.CommentsIndex({
+      collection: comments
+    });
+    this._swapView(commentsIndexView);
   },
 
   _swapView: function(view) {

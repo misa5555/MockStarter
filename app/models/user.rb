@@ -20,6 +20,13 @@ class User < ActiveRecord::Base
     source: :project
   )
   
+  has_many(
+    :comments,
+    class_name: 'Comment',
+    foreign_key: :author_id,
+    primary_key: :id
+  )
+
   has_attached_file :avator, :styles => {
     :big => "600x600>",
     :middle => "100x100#",

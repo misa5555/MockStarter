@@ -49,7 +49,8 @@ $(function() {
 	BigStart.initialize( <%= @project.id %>)
 	
     $(".project-content-header").click(function(event){
-	  	var $target = $(event.target);
+      debugger
+      var $target = $(event.target);
       $target.parent().siblings().removeClass('active');
 	  	$target.parent().addClass("active");
     });

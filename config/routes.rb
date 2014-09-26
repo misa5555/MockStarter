@@ -10,5 +10,6 @@ BigStart::Application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :projects
+    resources :comments, only: [:create, :destroy]
   end
 end

@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140926051726) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["author_id"], name: "index_comments_on_author_id", unique: true, using: :btree
-  add_index "comments", ["project_id"], name: "index_comments_on_project_id", unique: true, using: :btree
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
+  add_index "comments", ["project_id"], name: "index_comments_on_project_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "title",                      null: false
