@@ -8,7 +8,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
-gem 'backbone-on-rails'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
 

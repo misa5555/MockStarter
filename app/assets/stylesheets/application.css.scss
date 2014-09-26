@@ -27,7 +27,6 @@ $startgreen : #33FF33;
 
 body {
   padding-top: 60px;
-  padding-left: 30px;
 }
 
 #header{
@@ -86,34 +85,65 @@ ul.project-stat li{
 .project-header h4 {
   width: 200px;
   margin: 0 auto;
+  padding-bottom: 30px;
 }
 
 .project-content{
-  width: 960px;
+  width: 900px;
   margin: 0 auto;
+  height: 1000px;
   background: white;
+  border: solid black 1px;
 }
-.project-category-header{
-  height: 50px;  
-}
-#project-nav{
-  width: 800px;  
-}
-.project-category{
-  display: inline;
-  float:right;
-}
-.current-content{
-  width: 600px;
-  float: left;
-}
+//project navigation bar
 
-.project-status{
-  width: 250px;
+.project-content-header{
+  width: 500px;
+  height: 20px;
+}
+.project-content-header li{
+  width: 110px;
+  height: 40px;
   float: left;
-  padding-left: 30px;
+  font-size: 150%;
+  list-style-type:none;
+  text-align: center;
+}
+.project-content-header a{
+  color: gray; 
+}
+.project-content-header .active a{
+  color: black;
+}
+.project-content-header .active {
+  background-color: $startgreen;
+}
+//project content
+.current-content{
+  height:100%;
+  width: 70%;
+  float: left;
+  padding-left:40px; 
+}
+.project-image{
+  width: 550px;
+}
+.project-destription{
+  float: left;
+}
+.project-status{
+  width: 30%;
+  float: left;
 }
 
 .project-status-item h1{
   margin: 0px;
+}
+
+//backers list
+.backers-list{
+  padding-left: 30px;
+}
+.backer-list-item{
+  height:120px;
 }

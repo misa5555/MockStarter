@@ -1,3 +1,5 @@
+
+
 <div class="container" id="main">
   <div class="project-header">
     <h2><%= @project.title %></h2>
@@ -5,22 +7,18 @@
   </div>
 
   <div class="project-content">
-    <div class="project-content-header">
-      <ul class="nav nav-tabs" role="tablist" id="project-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#/updates">Updates</a></li>
-        <li><a href="#/backers">Backers</a></li>
-
-        <li><a href="#/comments">Comments</a></li>
-      </ul>
-      <br>
-    </div>
+    <ul class="project-content-header">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#/updates">Updates</a></li>
+      <li><a href="#/backers">Backers</a></li>
+      <li><a href="#/comments">Comments</a></li>
+    </ul>
+	
     <div class="current-content">
-      
       <div class="project-image"> 
         <%= image_tag @project.project_photo.url(:big) %>
       </div>
-      <div>
+      <div class="project-description">
         <h3>Description</h3> 
         <%= @project.description %>
       </div>
@@ -45,8 +43,16 @@
     </div>
   </div>
 </div>
+
 <script>
 $(function() {
 	BigStart.initialize( <%= @project.id %>)
-}); 
+	
+    $(".project-content-header").click(function(event){
+	  	var $target = $(event.target);
+      $target.parent().siblings().removeClass('active');
+	  	$target.parent().addClass("active");
+    });
+});
+
 </script>

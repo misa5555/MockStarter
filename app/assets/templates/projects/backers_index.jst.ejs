@@ -1,7 +1,13 @@
-<h3>Backers</h3>
-<% backers.each(function( backer ){ %>
-  <div class="backer">
-  <img src="<%= backer.get('avator_url')%>"> 
-  <%= backer.escape("username") %>
-  </div>
-<% }); %>
+<div class="backers-list">
+  <h3>Backers</h3>
+  <% backers.each(function( backer ){ %>
+    <div class="row backer-list-item">
+      <div class="col-xs-3">
+        <a href="/users/<%= backer.id %>"> <img src="<%= backer.get('avator_url')%>"></a> 
+      </div>    
+      <div class="col-xs-9">
+        <a href="/users/<%= backer.id %>"><h4><%= backer.escape("username") %></h4></a>
+      </div>  
+    </div>
+  <% }); %>
+</div>
