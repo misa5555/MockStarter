@@ -48,12 +48,16 @@
 $(function() {
 	BigStart.initialize( <%= @project.id %>)
 	
-    $(".project-content-header").click(function(event){
-      debugger
-      var $target = $(event.target);
-      $target.parent().siblings().removeClass('active');
-	  	$target.parent().addClass("active");
-    });
+  $(".project-content-header").click(function(event){
+    var $target = $(event.target);
+    $target.parent().siblings().removeClass('active');
+    $target.parent().addClass("active");
+  });
+
+  var current_tab = window.location.hash;
+  var selector = '.project-content-header a[href$="' + current_tab + '"]';
+  $(selector).parent().siblings().removeClass('active');
+  $(selector).parent().addClass('active');
 });
 
 </script>
