@@ -38,7 +38,10 @@ class ProjectsController < ApplicationController
   
   def backer_index
     @backers = Project.find(params[:project_id]).backers
-  
+  end
+
+  def discover
+    
   end
   private
   def project_params
