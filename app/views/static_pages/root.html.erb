@@ -1,4 +1,9 @@
-<h1>Popular Projects</h1>
-<% @popular_projects.each do |project| %>
-  <%= render "projects/project_thumbnail", project: project%>
-<% end %>  
+<div class="top-image">
+  <img src="/assets/top1.png">
+</div>  
+<div class="container">
+  <h1>Popular Projects</h1>
+  <% @popular_projects.each do |project| %>
+    <%= render "projects/project_thumbnail", project: project%>
+  <% end %>
+</div>  

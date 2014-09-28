@@ -18,7 +18,4 @@ BigStart.Collections.Projects = Backbone.Collection.extend({
     }
     return project;
   },
-  
 });
-
-// BigStart.Collections.projects = new Backbone.Collections.Projects();

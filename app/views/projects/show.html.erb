@@ -1,52 +1,52 @@
-
-
 <div class="container" id="main">
   <div class="project-header">
     <h2><%= @project.title %></h2>
     <h4>by <%= @project.creator.username %></h4>
   </div>
 
-  <div class="project-content">
-    <ul class="project-content-header">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#/updates">Updates</a></li>
-      <li><a href="#/backers">Backers</a></li>
-      <li><a href="#/comments">Comments</a></li>
-    </ul>
+  <ul class="project-content-header">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#/backers">Backers</a></li>
+    <li><a href="#/comments">Comments</a></li>
+  </ul>
 	
-    <div class="current-content">
-      <div class="project-image"> 
-        <%= image_tag @project.project_photo.url(:big) %>
+
+  <div class="panel panel-default project-content">
+    <div class="panel-body clearfix">
+      <div class="current-content">
+        <div class="project-image"> 
+          <%= image_tag @project.project_photo.url(:big) %>
+        </div>
+        <div class="project-description">
+          <h3>Description</h3> 
+          <%= @project.description %>
+        </div>
       </div>
-      <div class="project-description">
-        <h3>Description</h3> 
-        <%= @project.description %>
-      </div>
-    </div>
-    
-    <div class="project-status">  
-      <div class="project-status-item">
-        <h1><%= @project.backers.count %></h1>
-        <p>backers</p>
-      </div>  
-      <div class="project-status-item">
-        <h1>$<%= @project.back_total %></h1>
-        <p>pledged of $<%= @project.target_amount %> goal</p>
-      </div>  
-      <div class="project-status-item">
-        <h1><%= @project.days_to_go %></h1>
-        <p>days to go</p>
-      </div>  
       
-    <%= link_to "edit this project", edit_project_url(@project) %>
-    <%= link_to "back this project", new_project_back_url(@project), class: "btn btn-primary" %>
+      <div class="project-status">  
+        <div class="project-status-item">
+          <h1><%= @project.backers.count %></h1>
+          <p>backers</p>
+        </div>  
+        <div class="project-status-item">
+          <h1>$<%= @project.back_total %></h1>
+          <p>pledged of $<%= @project.target_amount %> goal</p>
+        </div>  
+        <div class="project-status-item">
+          <h1><%= @project.days_to_go %></h1>
+          <p>days to go</p>
+        </div>  
+        
+      <%= link_to "edit this project", edit_project_url(@project) %>
+      <%= link_to "back this project", new_project_back_url(@project), class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
 $(function() {
-	BigStart.initialize( <%= @project.id %>)
+	BigStart.initialize( <%= @project.id %>);
 	
   $(".project-content-header").click(function(event){
     var $target = $(event.target);

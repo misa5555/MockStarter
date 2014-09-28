@@ -3,4 +3,9 @@ class Api::ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     render :show
   end
+  
+  def search
+    @projects = Project.all
+    render :result
+  end
 end

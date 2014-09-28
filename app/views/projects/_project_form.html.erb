@@ -1,24 +1,53 @@
-<%= form_for(project) do |f| %>
-
-  <%= f.label :project_photo %>
-  <%= f.file_field :project_photo %>
-  <br> 
-  <%= f.label :title %>
-  <%= f.text_field :title %></br>
-  <br> 
-  <%= f.label :category_id %>
-  <%= f.select :category_id, [["Art", 0], ["Crafts", 1], ["Dance", 2], ["Design", 3], ["Fashion", 4], ["Film", 5], ["Food", 6], ["Games", 7], ["Journalism", 8], ["Music", 9], ["Photography", 10], ["Publishing", 11], ["Technology", 12], ["Theater", 13]] %>
-
-  <br>
-  <%= f.label :target_amount %>
-  <%= f.number_field :target_amount%>
-  <br>
-  <%= f.label :end_date %>
-  <%= f.date_field :end_date %>
-  <br>
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-  <br>
-  <%= f.submit %>
+<% if action_type == :new %>
+  <%- title = "Create your project"%>
+<% else %>  
+  <%- title = "Edit your project"%>
 <% end %>  
 
+<div class="container">
+  <div class="basic-form">
+    <h1><%= title %></h1>
+    <div class="panel panel-default">
+      <div class="panel-body form-body">
+
+        <%= form_for(project, :html => { :class => "form-horizontal" }) do |f| %>
+          <div class="form-group">
+            <%= f.label :project_photo, class: "control-label" %>
+            <%= f.file_field :project_photo %>
+            <p class="help-block">Upload your project image photo</p>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :title, class: "control-label" %>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          
+          
+          <div class="form-group select">
+            <%= f.label :category_id, class: "control-label" %>
+            <%= f.select :category_id, [["Art", 0], ["Crafts", 1], ["Dance", 2], ["Design", 3], ["Fashion", 4], ["Film", 5], ["Food", 6], ["Games", 7], ["Journalism", 8], ["Music", 9], ["Photography", 10], ["Publishing", 11], ["Technology", 12], ["Theater", 13]], class: "form-control" %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label :target_amount, class: "control-label" %>
+            <%= f.number_field :target_amount, class: "form-control", min: "1" %>
+          </div>
+
+          <div class="form-group date">
+            <%= f.label :end_date, class: "control-label" %>
+            <%= f.date_field :end_date, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, class: "control-label" %>
+            <%= f.text_field :description, class: "form-control" %>
+          </div>
+
+          <div class="form-actions">  
+            <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+          </div>  
+        <% end %>
+      </div>  
+    </div>  
+  </div>  
+</div>  

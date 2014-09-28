@@ -1,0 +1,29 @@
+
+<% results.each(function(result){ %>
+  <div class="project-thumbnail thumbnail">
+    <a href="/projects/<%= result.id %>"><img src="<%= result.get("project_photo_url")%>"></a>
+    
+    <div class="caption">
+      <a href="/projects/<%= result.id %>"><h5><%= result.get("title") %></h5></a> 
+      <p><%= result.get("description") %></p>
+    </div>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow='<%= result.get("funded_percentage") %>' aria-valuemin="0" aria-valuemax="100" style='width: <%= result.get("funded_percentage") %>%;'>
+      </div>
+    </div>    
+    <ul class="project-stat">  
+      <li>
+        <h5><%= result.get("funded_percentage") %>%</h5>
+        funded  
+      </li>  
+      <li>
+        <h5>$<%= result.get("funded") %></h5>
+        pledged
+      </li>
+      <li>
+        <h5><%= result.get("days_to_go") %></h5>
+         days to go  
+      </li>
+    </ul>
+  </div>  
+<% }); %>

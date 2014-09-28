@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= require big_start
+//= require discover
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models

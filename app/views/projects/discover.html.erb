@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Discover your project</h1>
+  <a href="#">clear</a>
+  <div class="category-list">
+    <%- id = 1 %>
+    <% Rails.application.config.categories.each do |category| %>
+      <a href="#/<%= id %>">
+        <button type="button" class="btn btn-default">
+          <%= category%>
+        </button>
+      </a>
+      <%- id = id + 1 %>  
+    <% end %>  
+  </div>  
+  <div class="current-result">
+  </div>  
+</div>
+<script>
+  $(function() {
+    Discover.initialize(); 
+  });
+</script>

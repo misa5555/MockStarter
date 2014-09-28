@@ -43,6 +43,7 @@ class ProjectsController < ApplicationController
   def discover
     
   end
+  
   private
   def project_params
     params.require(:project).permit(:title, :target_amount, :end_date, :category_id, :description, :project_photo)

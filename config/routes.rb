@@ -3,13 +3,16 @@ BigStart::Application.routes.draw do
   resources :users
   resource :session
   delete '/session', to: 'session#desrtoy', as: 'logout'
+  
   resources :projects do
     resources :backs, only: [:new, :create]
-    get '/backers', to: 'projects#backer_index'
   end
+  get '/discover', to: 'projects#discover'
 
   namespace :api, defaults: { format: :json } do
-    resources :projects
+    resources :projects, only: [:show]
+    get 'search', to: 'projects#search', as: 'search'
     resources :comments, only: [:create, :destroy]
+    
   end
 end

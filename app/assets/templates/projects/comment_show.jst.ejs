@@ -1,4 +1,16 @@
-<a href="/users/<%= comment.get("author_id") %>"><img src="<%= comment.get("author_avator_url") %>"></a>
-<h4><%= comment.escape("author_username") %></h4>
-Posted <%= comment.escape("created_at")%>
-<h5><%= comment.escape("body") %><h5>
+<div class="comment row">
+  <div class="col-xs-3">
+  <a href="/users/<%= comment.get("author_id") %>"><img src="<%= comment.get("author_avator_url") %>"></a>
+  </div>
+  
+  <div class="col-xs-9">
+    <h4>
+      <%= comment.escape("author_username") %>
+      <% if (comment.get("author_id") === comment.get("current_user_id")) { %>
+        <button class="destroy btn">Delete</button>
+      <% } %>
+    </h4>
+    Posted <%= comment.escape("time_ago")%> ago
+    <h4><%= comment.escape("body") %></h4>
+  </div>
+</div>

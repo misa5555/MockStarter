@@ -1,5 +1,5 @@
 <div class="project-thumbnail thumbnail">
-<%= image_tag project.project_photo.url(:small) %>
+  <a href="<%= project_url(project)%>"><%= image_tag project.project_photo.url(:small) %></a>
   <div class="caption">
     <div class="description">
       <h5><%= link_to project.title, project_url(project) %></h5>
@@ -12,13 +12,16 @@
     </div>
     <ul class="project-stat">  
       <li>
-        <%= project.funded_percentage.to_i %>%
+        <h5><%= project.funded_percentage %>%</h5>
+        funded  
       </li>  
       <li>
-        pledged: <%= project.back_total %>
+        <h5><%= project.back_total %></h5>
+        pledged
       </li>
       <li>
-        <%= project.end_date %>
+        <h5><%= project.days_to_go %></h5>
+         days to go  
       </li>
     </ul>
   </div>

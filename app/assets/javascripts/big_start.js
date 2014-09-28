@@ -13,7 +13,3 @@ window.BigStart = {
   }
 };
 
-// moved to project show page
-// $(document).ready(function(){
-//   BigStart.initialize();
-// });
