@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to project_url(@project)
     else
-      flash.now[:errors] = @cat.errors.full_messages
+      flash.now[:errors] = @project.errors.full_messages
       render :new
     end
   end
