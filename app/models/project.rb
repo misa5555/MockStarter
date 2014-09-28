@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
-  validates :title, :target_amount, presence: true
+  validates :title, presence: true
+  validates :target_amount, presence: true, numericality: {greater_than: 0}
+  default_scope order('created_at DESC') 
   belongs_to(
     :creator,
     class_name: 'User',
@@ -19,14 +21,14 @@ class Project < ActiveRecord::Base
   has_many :comments
   
   has_attached_file :project_photo, :styles => {
-    big: "400x400>",
+    big: "350x350#",
     small: "305x225#",
   }
   validates_attachment_content_type(
     :project_photo,
     :content_type => /\Aimage\/.*\Z/
   )
-
+  
   def back_total
     sum = 0
     self.backs.each do |back|
