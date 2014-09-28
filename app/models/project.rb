@@ -1,3 +1,4 @@
+require 'action_view'
 class Project < ActiveRecord::Base
   validates :title, presence: true
   validates :target_amount, presence: true, numericality: {greater_than: 0}
@@ -34,7 +35,7 @@ class Project < ActiveRecord::Base
     self.backs.each do |back|
       sum += back.amount
     end
-    sum
+    ActionView::Base.new.number_with_delimiter(sum)
   end
   
   def funded_percentage
@@ -42,7 +43,7 @@ class Project < ActiveRecord::Base
     if self.target_amount > 0
       percentage = (back_total.to_f / self.target_amount.to_f)*100
     end
-    percentage
+    percentage.to_i
   end
 
   def days_to_go
