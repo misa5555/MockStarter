@@ -9,7 +9,8 @@ Bundler.require(:default, Rails.env)
 module BigStart
   class Application < Rails::Application
     config.categories = ["Art", "Crafts", "Dance", "Design", "Fashion", "Film", "Food", "Games", "Journalism", "Music", "Photography", "Publishing", "Technology", "Theater"]
-  
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    
     config.paperclip_defaults = {                                   
       :storage => :s3,                                              
       :s3_protocol => 'http',                                       
