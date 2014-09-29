@@ -36,7 +36,7 @@ class Project < ActiveRecord::Base
     self.backs.each do |back|
       sum += back.amount
     end
-    ActionView::Base.new.number_with_delimiter(sum)
+    sum
   end
   
   def funded_percentage
