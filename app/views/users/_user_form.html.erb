@@ -1,18 +1,39 @@
-<%= form_for(user) do |f| %>
-  <%= f.label :avator %>
-  <%= f.file_field :avator %>
-  <br> 
-  
-  <%= f.label :username %>
-  <%= f.text_field :username %></br>
-  <br>
-  
-  <%= f.label :description %>
-  <%= f.text_field :description %></br>
-  
-  <br> 
-  <%= f.label :password %>
-  <%= f.password_field :password %></br>
+<% if type == :new_user %>
+  <%- title = "Create new account "%>
+<% else %>
+  <%- title = "Edit your account "%>
+<% end %> 
 
-  <%= f.submit %>
-<% end %>  
+<div class-"container">
+  <div class="basic-form">
+  <h1><%= title %></h1>
+  <div class="panel panel-default">
+    <div class="panel-body form-body">
+      <%= form_for(user, :html => { :class => "form-horizontal" }) do |f| %>
+        <div class="form_group">
+          <%= f.label :avator, class: "control-label" %>
+          <%= f.file_field :avator %>
+        </div> 
+        
+        <div class="form_group">
+          <%= f.label :username, class: "control-label" %>
+          <%= f.text_field :username, class: "form-control" %>
+        </div>
+        
+        <div class="form_group">
+          <%= f.label :description, class: "control-label"%>
+          <%= f.text_field :description, class: "form-control" %>
+        </div> 
+        
+        <% if type == :new_user %>
+          <div class="form_group password">
+            <%= f.label :password, class: "control-label" %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+        <% end %>
+        <br>
+        <div class="form-actions">  
+          <%= f.submit "Submit", class: "btn btn-default btn-primary" %>
+        </div>  
+      <% end %>
+</div>  

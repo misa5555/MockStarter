@@ -1,4 +1,3 @@
-require 'action_view'
 class Project < ActiveRecord::Base
   
   validates :title, presence: true
@@ -30,7 +29,14 @@ class Project < ActiveRecord::Base
     :project_photo,
     :content_type => /\Aimage\/.*\Z/
   )
+ 
+  def backer?(user)
+    self.backers.include?(user)
+  end
   
+  def creator?(user)
+    self.creator.id == user.id
+  end
   def back_total
     sum = 0
     self.backs.each do |back|

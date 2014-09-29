@@ -28,6 +28,7 @@
         </ul>
       </li> 
     <% else %>
+      <li><%= link_to "Guest", guest_login_url, method: :post, controller: "session", action: "guest_login" %></li>
       <li><%= link_to "Log in", new_session_url %></li>
       <li><%= link_to "Sign up", new_user_url %></li>
     <% end %>

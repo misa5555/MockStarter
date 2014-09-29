@@ -3,8 +3,6 @@
   <div class="caption">
     <div class="description">
       <h5><%= link_to project.title, project_url(project) %></h5>
-      <p>by <%= project.creator.username %></p>
-      <p><%= project.description %></p>  
     </div>
     <div class="progress">
       <div class="progress-bar" role="progressbar" aria-valuenow="<%= project.funded_percentage %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.funded_percentage %>%;">
@@ -16,7 +14,7 @@
         funded  
       </li>  
       <li>
-        <h5><%= project.back_total %></h5>
+        <h5><%= ActionController::Base.helpers.number_to_currency(project.back_total, precision: 0) %></h5>
         pledged
       </li>
       <li>

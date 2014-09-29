@@ -46,16 +46,14 @@ body {
 }
 //project thumbnail
 #thumbnails{
+  width: 1000px;
+  margin: 0 auto;
 }
 .project-thumbnail{
   width: 320px;
-  height: 200px;
+  height: 350px;
   float: left;
-  margin: 20px;
-}
-
-.description{
-  color: gray;
+  margin: 2px;
 }
 
 .progress{
@@ -73,6 +71,13 @@ ul.project-stat li{
   width: 70px;
   float: left;
   list-style: none;
+}
+#infscr-loading{
+  position: fixed;
+  left: 45%;
+  bottom: 40px;
+  width: 200px;
+
 }
 // project show page
 .project-container{
@@ -96,9 +101,11 @@ ul.project-stat li{
   width: 200px;
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 15px;
 }
-
+#backer-notice{
+  color: $startgreen;
+}
 .project-content{
   width: 900px;
   margin: 0 auto;
@@ -213,8 +220,4 @@ ul.project-stat li{
 }
 .category-list button:hover{
   color: $startgreen;
-}
-// for endless scroll
-.infscr-loading{
-
 }
