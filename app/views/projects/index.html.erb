@@ -1,0 +1,36 @@
+<div class="top-image">
+  <img src="/assets/top1.png">
+</div>  
+<div class="container" id="projects">
+  <h1>MANY projects, scroll down!</h1>
+  <div class="page js-masonry" data-masonry-options='{ "itemSelector": ".thumbnail" }' id="thumbnails">
+    <%= render collection: @projects, partial: "projects/project_thumbnail", as: :project %>
+  </div>  
+</div>
+<%= paginate @projects %>
+
+<script>
+  $(function(){
+    var $tiles = $('#thumbnails').css({ opacity: 0 });
+    $tiles.imagesLoaded(function(){
+      $tiles.animate({ opacity: 1 });
+      $tiles.masonry({ itemSelector: '.thumbnail' });
+    });
+    
+    $tiles.infinitescroll({
+      navSelector  : 'nav.pagination',
+      nextSelector : 'nav.pagination a[rel=next]',
+      itemSelector : '#thumbnails .thumbnail',
+      loading: {
+        msgText: '',
+        finishedMsg: '',
+      }
+    }, function( newElements ) {
+      var $newElems = $( newElements ).css({ opacity: 0 });
+      $newElems.imagesLoaded(function(){
+        $newElems.animate({ opacity: 1 });
+        $tiles.masonry( 'appended', $newElems, true );
+      });
+    });
+  });
+</script>

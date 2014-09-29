@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.infinitescroll
+//= require masonry.pkgd.min
+//= require imagesloaded.pkgd.min
 //= require bootstrap
 //= require underscore
 //= require backbone

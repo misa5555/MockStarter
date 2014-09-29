@@ -45,9 +45,11 @@ body {
   margin-top: 0px;
 }
 //project thumbnail
+#thumbnails{
+}
 .project-thumbnail{
   width: 320px;
-  height: 470px;
+  height: 200px;
   float: left;
   margin: 20px;
 }
@@ -211,4 +213,8 @@ ul.project-stat li{
 }
 .category-list button:hover{
   color: $startgreen;
-}  
+}
+// for endless scroll
+.infscr-loading{
+
+}

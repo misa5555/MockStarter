@@ -1,5 +1,5 @@
 BigStart::Application.routes.draw do
-  root to: "static_pages#root"
+  root to: "projects#index"
   resources :users
   resource :session
   delete '/session', to: 'session#desrtoy', as: 'logout'

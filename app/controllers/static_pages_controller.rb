@@ -1,5 +1,9 @@
 class StaticPagesController < ApplicationController
   def root
-    @popular_projects = Project.all
+    @projects = Project.order(:created_at).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.json
+    end 
   end
 end

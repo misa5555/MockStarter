@@ -1,8 +1,9 @@
 require 'action_view'
 class Project < ActiveRecord::Base
+  
   validates :title, presence: true
   validates :target_amount, presence: true, numericality: {greater_than: 0}
-  default_scope order('created_at DESC') 
+  # default_scope order('created_at DESC') 
   belongs_to(
     :creator,
     class_name: 'User',

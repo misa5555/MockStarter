@@ -10,7 +10,9 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-rails'
 gem 'bootstrap-sass'
-
+gem 'kaminari'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 group :doc do
   gem 'sdoc', require: false
 end
