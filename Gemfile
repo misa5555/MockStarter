@@ -36,3 +36,6 @@ gem "figaro"
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'backbone-on-rails'
+
+# for seed data
+gem 'faker'

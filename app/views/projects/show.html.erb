@@ -15,8 +15,10 @@
 
   <ul class="project-content-header">
     <li class="active"><a href="#">Home</a></li>
-    <li><a href="#/backers">Backers</a></li>
-    <li><a href="#/comments">Comments</a></li>
+    <% if signed_in? %>
+      <li><a href="#/backers">Backers</a></li>
+      <li><a href="#/comments">Comments</a></li>
+    <% end %>
   </ul>
 
   <% if @project.backer?(current_user)%>

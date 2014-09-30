@@ -1,3 +1,4 @@
+require 'faker'
 10.times do |i|
   User.create!(username: Faker::Name.name, password: 'password')
 end
