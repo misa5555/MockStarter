@@ -19,6 +19,7 @@
       <li class="dropdown">
       <div class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
         <%= image_tag current_user.avator.url(:small)%>
+  <span class="glyphicon glyphicon-chevron-down"></span>
       </div>
         </button>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -31,7 +32,7 @@
       <li><%= link_to "Log in", new_session_url %></li>
       <li><%= link_to "Sign up", new_user_url %></li>
     <% end %>
-    </ul>
+  </ul>
   </div>
 </div>
 </nav>
