@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
- before_filter :require_user_signin!, only: [:show, :edit, :update]
+ before_filter :require_user_signin!, only: [:edit, :update]
+ before_filter :require_users_own_signin!, only: [:edit, :update]  
   
   def new
     @user = User.new
@@ -38,5 +39,10 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:password, :username, :avator, :description)
+  end
+
+  def require_users_own_signin! 
+    return if User.find(params[:id]).id == current_user.id
+    render json: "Forbidden", status: :forbidden
   end
 end

@@ -7,7 +7,7 @@
     <h4>by <%= link_to @project.creator.username, user_url(@project.creator) %></h4>
     <h4 id="backer-notice">
       <% if @project.backer?(current_user)%>
-        <span class="glyphicon glyphicon-user"></span>
+        <span class="glyphicon glyphicon-certificate"></span>
         You are backer!
       <% end %>
     </h4>    
@@ -55,9 +55,7 @@
           <% else %>
             <%= link_to "back this project", '#new_modal',  class: "btn btn-default create-pledge-button", 'data-toggle' => "modal" %>
           <% end %>  
-          <br>
-          <%= link_to "edit this project", edit_project_url(@project) %>
-          
+          <br> 
           <% if @project.creator?(current_user)%>
           <%= link_to "edit your project", edit_project_url(@project), class: "btn btn-default manage-pledge-button"  %>
         <% end %>  

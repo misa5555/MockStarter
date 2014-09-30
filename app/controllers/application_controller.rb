@@ -28,4 +28,5 @@ class ApplicationController < ActionController::Base
   def require_user_signin!
     redirect_to new_session_url if current_user.nil?
   end
+
 end
