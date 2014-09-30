@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Update your pledge</h1>
-  <h3>Your current pledge <%= @back.amount %></h3>
+  <h3>Your current pledge <%= ActionController::Base.helpers.number_to_currency(@back.amount, precision: 0) %></h3>
   <form action=<%= project_back_url%> method="post">
     <%= auth_token_input %>
     <input type="hidden" name="_method" value="put">

@@ -1,5 +1,26 @@
 <div class="container">
   <h3><%= @user.username %></h3>
-  <p><%= @user.description %></p>
-  <%= image_tag @user.avator.url(:big) %>
+  <div class="profile-photo"><%= image_tag @user.avator.url(:big) %></div>
+  <p class="profile-description"><%= @user.description %></p>
+  <div class="profile-stats">
+    <h4>Backed <%= @user.support_projects.uniq.count %> projects</h4>
+    <h4>Created <%= @user.projects.uniq.count%> projects</h4> 
+   </div>
+<div class="tabbable">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#pane1" data-toggle="tab">Backed projects</a></li>
+    <li><a href="#pane2" data-toggle="tab">Created projects</a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="pane1" class="tab-pane active">
+      <% @user.support_projects.each do |project| %>
+        <%= render "projects/project_thumbnail", project: project %>
+      <% end %>   
+    </div>
+    <div id="pane2" class="tab-pane">
+      <% @user.projects.each do |project| %>
+        <%= render "projects/project_thumbnail", project: project %>
+      <% end %>   
+    </div>
+  </div><!-- /.tab-content -->
 </div>

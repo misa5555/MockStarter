@@ -10,7 +10,7 @@ Discover.Routers.Router = Backbone.Router.extend({
   
   searchProject: function(id) {
     this.projects.fetch();
-    var categoryCollections = this.projects.filterByCategory(parseInt(id));   
+    var categoryCollections = this.projects.filterByCategory(parseInt(id-1));   
   var resultView = new Discover.Views.SearchResult({
       collection: categoryCollections,
       originalCollection: this.projects 

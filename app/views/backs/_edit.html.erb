@@ -1,0 +1,13 @@
+<h4>Your current pledge <%= ActionController::Base.helpers.number_to_currency(back.amount, precision: 0) %></h4>
+  <form action=<%= project_back_url(project.id, back.id)%> method="post" role="form">
+    <%= auth_token_input %>
+    <div class="form-group">
+      <input type="hidden" name="_method" value="put">
+    </div> 
+    <div class="form-group">
+      <label> Add value 
+        <input type="number" name="back[added_fund]" value="" min="0" class="form-control">
+      </label>
+    </div>
+    <button type="submit" class="btn btn-default modal-submit-button">Submit</button>
+  </form>

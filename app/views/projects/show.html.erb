@@ -1,12 +1,13 @@
 <div class="container" id="main">
+  <%= render "projects/notices" %>
   <div class="project-header">
     <h2><%= @project.title %></h2>
     
 
-    <h4>by <%= @project.creator.username %></h4>
+    <h4>by <%= link_to @project.creator.username, user_url(@project.creator) %></h4>
     <h4 id="backer-notice">
       <% if @project.backer?(current_user)%>
-        <span class="glyphicon glyphicon-certificate"></span>
+        <span class="glyphicon glyphicon-user"></span>
         You are backer!
       <% end %>
     </h4>    
@@ -47,17 +48,60 @@
           <p>days to go</p>
         </div>  
         
-      <%= link_to "edit this project", edit_project_url(@project) %>
-      
-  <% if @project.backer?(current_user)%>
-    <%- backing = current_user.backing_to(@project) %>    
-    <%= link_to "Manage your pledge", edit_project_back_url(@project, backing), class: "btn btn-primary" %>
-  <% else %>  
-    <%= link_to "back this project", new_project_back_url(@project), class: "btn btn-primary" %>
-  <% end %>  
+        <% if signed_in? %> 
+          <% if @project.backer?(current_user)%>
+            <%- backing = current_user.backing_to(@project) %>
+              <%= link_to "Manage your pledge", '#edit_modal',  class: "btn btn-default create-pledge-button", 'data-toggle' => "modal" %>
+          <% else %>
+            <%= link_to "back this project", '#new_modal',  class: "btn btn-default create-pledge-button", 'data-toggle' => "modal" %>
+          <% end %>  
+          <br>
+          <%= link_to "edit this project", edit_project_url(@project) %>
+          
+          <% if @project.creator?(current_user)%>
+          <%= link_to "edit your project", edit_project_url(@project), class: "btn btn-default manage-pledge-button"  %>
+        <% end %>  
+      <% end %>
       </div>
     </div>
   </div>
+
+  <% if signed_in? && @project.backer?(current_user)%>
+    <div class="modal fade" id="edit_modal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Add value to your pledge</h4>
+          </div>
+          
+          <div class="modal-body">
+            <%- back = current_user.backs.where(project_id: params[:id]).first %> 
+            <%= render 'backs/edit', modal: true, project: @project, back: back %>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <% if signed_in? %>
+    <div class="modal fade" id="new_modal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Back this project</h4>
+          </div>
+          
+          <div class="modal-body">
+            <%= render 'backs/new', modal: true, project: @project %>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
 
 <script>

@@ -16,6 +16,7 @@
 //= require masonry.pkgd.min
 //= require imagesloaded.pkgd.min
 //= require bootstrap
+// require bootstrap/modal
 //= require underscore
 //= require backbone
 //= require big_start

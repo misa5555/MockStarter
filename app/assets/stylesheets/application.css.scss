@@ -12,8 +12,8 @@
  *= require_tree .
  */
 @import "bootstrap";
-// @import 'bootstrap-sass';
 @import "font-awesome";
+@import "bootstrap-sprockets";
 
 $startgreen : #00FA9A;
 
@@ -113,6 +113,16 @@ ul.project-stat li{
   height: 100%;
   background: white;
 }
+
+//flash message
+.thanks-message{
+  background: $startgreen;
+  text-align: center;
+  font-size: 20px;
+  margin: 0 auto;
+  width: 200px;
+  font: black;
+}
 //project navigation bar
 
 .project-content-header{
@@ -164,6 +174,25 @@ ul.project-stat li{
   margin: 0px;
 }
 
+.manage-pledge-button{
+  background: #33CCFF;
+  font-size: 20px;
+  color: white;
+}
+
+.create-pledge-button{
+  background:$startgreen;
+  font-size:20px;
+}
+//modal window for pledge
+.modal-body{
+  margin: 0 auto;
+  width: 250px;
+}
+.modal-submit-button{
+  background: $startgreen;
+  color: black;
+}
 //backers list
 .backers-list{
   padding-left: 30px;
@@ -220,4 +249,20 @@ ul.project-stat li{
 }
 .category-list button:hover{
   color: $startgreen;
+}
+
+//user profile page
+.profile-photo{
+  float: left;
+  width: 20%;
+}
+.profile-description{
+  float: left;
+  width: 80%;
+  height: 100px;
+}
+.profile-stats{
+  float: left;
+  width: 80%;
+  height: 100px;
 }

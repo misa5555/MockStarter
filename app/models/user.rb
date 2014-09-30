@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates :username, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates_length_of :description, maximum: 500
 
   attr_reader :password
 
@@ -28,7 +29,7 @@ class User < ActiveRecord::Base
   )
 
   has_attached_file :avator, :styles => {
-    :big => "600x600>",
+    :big => "200x200#",
     :middle => "100x100#",
     :small => "50x50#"
   }

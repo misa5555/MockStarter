@@ -1,0 +1,7 @@
+<% if flash[:notice] %>
+  <div class="alert-success success thanks-message" role="alert">
+  <% flash[:notice].each do |notice| %>
+    <%= notice %>
+  <% end %>
+  </div>  
+<% end %>  

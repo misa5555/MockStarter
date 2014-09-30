@@ -2,7 +2,8 @@ class Project < ActiveRecord::Base
   
   validates :title, presence: true
   validates :target_amount, presence: true, numericality: {greater_than: 0}
-  # default_scope order('created_at DESC') 
+  validates_length_of :title, maximum: 30
+  default_scope order('created_at DESC') 
   belongs_to(
     :creator,
     class_name: 'User',
@@ -22,7 +23,7 @@ class Project < ActiveRecord::Base
   has_many :comments
   
   has_attached_file :project_photo, :styles => {
-    big: "350x350#",
+    big: "450x350#",
     small: "305x225#",
   }
   validates_attachment_content_type(
@@ -37,6 +38,7 @@ class Project < ActiveRecord::Base
   def creator?(user)
     self.creator.id == user.id
   end
+
   def back_total
     sum = 0
     self.backs.each do |back|

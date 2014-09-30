@@ -1,6 +1,5 @@
 <div class="container">
-  <h1>Back this project</h1>
-  <form action=<%= project_backs_url(project)%> method="post">
+  <form action=<%= project_backs_url(project.id)%> method="post">
     <%= auth_token_input %>
     <label> pledge amount
       <input type="number" name="back[amount]" value="">
