@@ -1,10 +1,12 @@
 <div class="container">
   <form action=<%= project_backs_url(project.id)%> method="post">
     <%= auth_token_input %>
-    <label> pledge amount
-      <input type="number" name="back[amount]" value="">
-      <input type="submit" value="submit">
-    </label>
-
+    <div class="form-group">
+      <label> Enter your pledge amount 
+        <input type="number" name="back[amount]" value="" class="form-control">
+      </label>
+      <br>
+      <button type="submit" value="submit" class="btn btn-default modal-submit-button">Submit</button>
+    </div>
   </form>
 </div>  
