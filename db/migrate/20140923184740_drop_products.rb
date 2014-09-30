@@ -1,6 +1,0 @@
-class DropProducts < ActiveRecord::Migration
-  def change
-    drop_table :entries
-    drop_table :feeds
-  end
-end
