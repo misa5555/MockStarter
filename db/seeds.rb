@@ -1,22 +1,28 @@
+10.times do |i|
+  User.create!(username: Faker::Name.name, password: 'password')
+end
 
-u1 = User.create(username: 'guest', password: 'password')
-u2 = User.create(username: 'bob', password: 'password')
-# u3 = User.create(username: 'charles', password: 'password')
-# u4 = User.create(username: 'dan', password: 'password')
-# u5 = User.create(username: 'earl', password: 'password')
-# u6 = User.create(username: 'fiona', password: 'password')
-# u7 = User.create(username: 'george', password: 'password')
-# u8 = User.create(username: 'hilary', password: 'password')
-# u9 = User.create(username: 'ira', password: 'password')
-# u10 = User.create(username: 'jason', password: 'password')
+30.times do |i|
+  user = User.find( (i % 10)  + 1)
+  user.projects.create(title: Faker::Company.name, target_amount: 10000 + rand(100)*10, end_date: Date.today + (400 + rand(400)), category_id: rand(14), description: Faker::Lorem.paragraph)
+end
 
-p1 = u1.projects.create(title: 'Growing Tales', target_amount: 100000, end_date: DateTime.strptime("09/25/2017", "%m/%d/%Y"), category_id:1, description: "Nulla vulputate auctor magna ac euismod. Suspendisse condimentum justo massa, eu venenatis quam congue eget. Cras euismod a nulla sed hendrerit. Nullam quis commodo ipsum. Suspendisse efficitur, enim ac interdum vulputate, dui lectus fringilla libero, vitae tempus libero elit quis lacus. Vivamus quis elementum magna, ac eleifend felis. Maecenas gravida nunc sit amet dolor dapibus, in euismod velit eleifend. Duis consectetur vel lacus sed tristique. Nam a fermentum nunc. Maecenas sollicitudin gravida velit. Nam venenatis rhoncus orci id volutpat. Integer vitae suscipit lacus, id aliquet tellus. Suspendisse sed elit eget est sodales lobortis vel nec felis. Vestibulum vitae elementum turpis. Donec nec ex leo. Vivamus volutpat est turpis, quis euismod magna maximus sit amet.")
+project_count = Project.all.count
+user_count = User.all.count
+(project_count).times do |i|
+  project = Project.find(i+1)
+  user_index = Array 1..user_count
+  user_index.sample(1+rand(5)).each do |j|
+    if project.creator.id != j
+      project.backs.create(user_id: j, project_id: project.id, amount:rand(1000))
+    end
+  end
+end
 
-# b1 = p1.backs.create(user_id: 2, project_id: 1, amount: 100 )
-# b2 = p1.backs.create(user_id: 3, project_id: 1, amount: 200 )
-# b3 = p1.backs.create(user_id: 4, project_id: 1, amount: 300 )
-# b4 = p1.backs.create(user_id: 5, project_id: 1, amount: 400 )
-# b5 = p1.backs.create(user_id: 6, project_id: 1, amount: 500 )
-# b6 = p1.backs.create(user_id: 7, project_id: 1, amount: 600 )
-# b7 = p1.backs.create(user_id: 8, project_id: 1, amount: 700 )
-# b8 = p1.backs.create(user_id: 9, project_id: 1, amount: 800 )
+(project_count).times do |i|
+  project = Project.find(i+1)
+  user_num = User.all.count
+  rand(5).times do
+    project.comments.create( body: Faker::Company.catch_phrase, project_id: project.id, author_id: rand(user_num))
+  end  
+end
