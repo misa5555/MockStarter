@@ -1,8 +1,8 @@
 <div class="container">
   <h1>Discover your project</h1>
-  <%# <a href="#">clear</a> %>
+  <hr>
   <div class="category-list">
-    <h4>select category</h4>
+    <h4>1. select category</h4>
     <%- id = 1 %>
     <% Rails.application.config.categories.each do |category| %>
       <a href="#/<%= id %>" class="btn btn-default" id="<%= id %>">
@@ -13,13 +13,13 @@
   </div>  
   
   <div class="sort-options">
-    <h4>sort by</h4>
+    <h4>2. sort by</h4>
     <div class="sort btn btn-default" data-sort="default" id="newest">Newest</div>
     <div class="sort btn btn-default" data-sort="popularity:desc">Popularity</div>
     <div class="sort btn btn-default" data-sort="fund:desc">Most funded</div>
     <div class="sort btn btn-default" data-sort="days:asc">End date</div>
   </div> 
-  
+  <hr> 
   <div class="current-result">
   </div>  
 </div>

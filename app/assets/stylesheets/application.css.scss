@@ -49,6 +49,14 @@ body {
 .well-unspaced {
   margin-top: 0px;
 }
+
+#scroll-notice{
+  width: 500px;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+}
 //project thumbnail
 #thumbnails{
   width: 1000px;
@@ -147,14 +155,11 @@ ul.project-stat li{
  color: #191970;
 }  
 .project-content-header a{
-
   color: gray; 
 }
 .project-content-header .active a{
-  color: black;
-}
-.project-content-header .active {
-  background-color: $startgreen;
+  color: $startgreen;
+  font-weight: bold;
 }
 //project content
 .current-content{
