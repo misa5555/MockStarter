@@ -1,6 +1,7 @@
 <div class-"container">
   <div class="basic-form">
-    <h2>Sign In</h2>
+    <h2>Sign In or <%= link_to "Guest log in", guest_login_url, method: :post %></h2>
+
     <div class="panel panel-default">
       <div class="panel-body form-body">
         <form action="<%= session_url %>" method="post" role="form">

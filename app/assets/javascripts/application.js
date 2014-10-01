@@ -15,6 +15,7 @@
 //= require jquery.infinitescroll
 //= require masonry.pkgd.min
 //= require imagesloaded.pkgd.min
+//= require jquery.mixitup
 //= require bootstrap
 // require bootstrap/modal
 //= require underscore

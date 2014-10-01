@@ -1,22 +1,30 @@
 <div class="container">
   <h1>Discover your project</h1>
-  <a href="#">clear</a>
+  <%# <a href="#">clear</a> %>
   <div class="category-list">
+    <h4>select category</h4>
     <%- id = 1 %>
     <% Rails.application.config.categories.each do |category| %>
-      <a href="#/<%= id %>">
-        <button type="button" class="btn btn-default">
+      <a href="#/<%= id %>" class="btn btn-default" id="<%= id %>">
           <%= category%>
-        </button>
       </a>
       <%- id = id + 1 %>  
-    <% end %>  
+    <% end %>
   </div>  
+  
+  <div class="sort-options">
+    <h4>sort by</h4>
+    <div class="sort btn btn-default" data-sort="default" id="newest">Newest</div>
+    <div class="sort btn btn-default" data-sort="popularity:desc">Popularity</div>
+    <div class="sort btn btn-default" data-sort="fund:desc">Most funded</div>
+    <div class="sort btn btn-default" data-sort="days:asc">End date</div>
+  </div> 
+  
   <div class="current-result">
   </div>  
 </div>
 <script>
   $(function() {
-    Discover.initialize(); 
+    Discover.initialize();
   });
 </script>

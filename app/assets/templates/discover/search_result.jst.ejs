@@ -1,10 +1,12 @@
 <div class="search-result">
   <% results.each(function(result){ %>
-    <div class="project-thumbnail thumbnail">
+    <div class="mix project-thumbnail thumbnail" data-fund="<%= result.get("funded")%>" data-days= <%= result.get("days_to_go")%> data-popularity="<%= result.get("funded_percentage") %>"> 
       <a href="/projects/<%= result.id %>"><img src="<%= result.get("project_photo_url")%>"></a>
       
       <div class="caption">
-        <a href="/projects/<%= result.id %>"><h5><%= result.get("title") %></h5></a> 
+        <a href="/projects/<%= result.id %>">
+          <h5><%= result.get("title") %></h5>
+        </a> 
       </div>
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow='<%= result.get("funded_percentage") %>' aria-valuemin="0" aria-valuemax="100" style='width: <%= result.get("funded_percentage") %>%;'>

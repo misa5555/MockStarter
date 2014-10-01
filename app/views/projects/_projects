@@ -1,3 +1,0 @@
-  <% @projects.each do |project| %>
-    <%= render "projects/project_thumbnail", project: project%>
-  <% end %>
