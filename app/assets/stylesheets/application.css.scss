@@ -245,21 +245,29 @@ ul.project-stat li{
 .category-list button{
   list-style: none;
   display: inline;
-  padding: 10px;
-  margin-bottom: 20px;
-  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 16px;
 }
 .category-list a:hover{
  text-decoration: none;
 }
-.category-list button:hover{
-  color: $startgreen;
+
+.category-list .active{
+  background-color:$startgreen; 
 }
 
+.sort-options .active{
+  background-color: $startgreen;
+}
 .search-result{
  margin: 0 auto;
-
 }
+
+.search-result .mix{
+  display: none;
+}
+
 //user profile page
 .profile-photo{
   float: left;
