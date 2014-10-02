@@ -15,15 +15,10 @@
 
   <ul class="project-content-header">
     <li class="active"><a href="#">Home</a></li>
-    <% if signed_in? %>
-      <li><a href="#/backers">Backers</a></li>
-      <li><a href="#/comments">Comments</a></li>
-    <% end %>
+    <li><a href="#/backers">Backers</a></li>
+    <li><a href="#/comments">Comments</a></li>
   </ul>
-
-  <% if @project.backer?(current_user)%>
-  <% end %>  
-
+  
   <div class="panel panel-default project-content">
     <div class="panel-body clearfix">
       <div class="current-content">
@@ -31,7 +26,6 @@
           <%= image_tag @project.project_photo.url(:big) %>
         </div>
         <div class="project-description">
-          <h3>Description</h3> 
           <%= @project.description %>
         </div>
       </div>
@@ -41,32 +35,32 @@
           <h1><%= @project.backers.uniq.count %></h1>
           <p>backers</p>
         </div>  
+        
         <div class="project-status-item">
           <h1><%=  ActionController::Base.helpers.number_to_currency(@project.back_total, precision: 0) %></h1>
           <p>pledged of <%= ActionController::Base.helpers.number_to_currency(@project.target_amount, precision: 0) %> goal</p>
         </div>  
+        
         <div class="project-status-item">
           <h1><%= @project.days_to_go %></h1>
           <p>days to go</p>
         </div>  
         
-        <% if signed_in? %> 
-          <% if @project.backer?(current_user)%>
-            <%- backing = current_user.backing_to(@project) %>
-              <%= link_to "Manage your pledge", '#edit_modal',  class: "btn btn-default create-pledge-button", 'data-toggle' => "modal" %>
-          <% else %>
-            <%= link_to "back this project", '#new_modal',  class: "btn btn-default create-pledge-button", 'data-toggle' => "modal" %>
-          <% end %>  
-          <br> 
-          <% if @project.creator?(current_user)%>
+        <% if @project.backer?(current_user)%>
+          <%- backing = current_user.backing_to(@project) %>
+            <%= link_to "Manage your pledge", '#edit_modal',  class: "btn btn-default create-pledge-button", 'data-toggle' => "modal" %>
+        <% else %>
+          <%= link_to "back this project", '#new_modal',  class: "btn btn-default create-pledge-button", 'data-toggle' => "modal" %>
+        <% end %>  
+        <br> 
+        <% if @project.creator?(current_user)%>
           <%= link_to "edit your project", edit_project_url(@project), class: "btn btn-default manage-pledge-button"  %>
         <% end %>  
-      <% end %>
       </div>
     </div>
   </div>
 
-  <% if signed_in? && @project.backer?(current_user)%>
+  <% if @project.backer?(current_user)%>
     <div class="modal fade" id="edit_modal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -85,23 +79,21 @@
     </div>
   <% end %>
 
-  <% if signed_in? %>
-    <div class="modal fade" id="new_modal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">Back this project</h4>
-          </div>
-          
-          <div class="modal-body">
-            <%= render 'backs/new', modal: true, project: @project %>
-          </div>
-          
+  <div class="modal fade" id="new_modal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Back this project</h4>
         </div>
+        
+        <div class="modal-body">
+          <%= render 'backs/new', modal: true, project: @project %>
+        </div>
+        
       </div>
     </div>
-  <% end %>
+  </div>
 </div>
 
 <script>

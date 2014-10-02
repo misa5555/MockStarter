@@ -58,6 +58,9 @@ GEM
     bootstrap-will_paginate (0.0.10)
       will_paginate
     builder (3.1.4)
+    bullet (4.13.2)
+      activesupport (>= 3.0.0)
+      uniform_notifier (>= 1.6.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.4)
@@ -182,6 +185,7 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.6.2)
     will_paginate (3.0.7)
 
 PLATFORMS
@@ -195,6 +199,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   bootstrap-will_paginate
+  bullet
   coffee-rails (~> 4.0.0)
   faker
   figaro

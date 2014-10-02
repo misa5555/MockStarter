@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :require_user_signin!, only: [:new, :create, :edit, :update]
+  before_action :require_user_signin!, only: [:new, :create, :edit, :update, :show]
   before_action :require_creators_owns_project!, only: [:edit, :update]
   
   def index
