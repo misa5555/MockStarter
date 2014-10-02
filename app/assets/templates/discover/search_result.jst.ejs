@@ -1,6 +1,6 @@
 <div class="search-result">
   <% results.each(function(result){ %>
-    <div class="mix project-thumbnail thumbnail" data-fund="<%= result.get("funded")%>" data-days= <%= result.get("days_to_go")%> data-popularity="<%= result.get("funded_percentage") %>"> 
+    <div class="mix project-thumbnail thumbnail" data-fund="<%= result.get("funded")%>" data-days= <%= result.get("days_to_go")%> data-percentage="<%= result.get("funded_percentage") %>"> 
       <a href="/projects/<%= result.id %>"><img src="<%= result.get("project_photo_url")%>"></a>
       
       <div class="caption">

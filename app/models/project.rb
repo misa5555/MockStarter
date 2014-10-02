@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   validates :title, presence: true
   validates :target_amount, presence: true, numericality: {greater_than: 0}
   validates_length_of :title, maximum: 30
+   # validates_numericality_of :target_amount, less_than_or_equal_to: 10000000
   default_scope order('created_at DESC') 
   belongs_to(
     :creator,
