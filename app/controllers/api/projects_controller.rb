@@ -6,6 +6,7 @@ class Api::ProjectsController < ApplicationController
   
   def search
     @projects = Project.all
+
     render :result
   end
 end

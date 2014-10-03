@@ -45,7 +45,7 @@ class Project < ActiveRecord::Base
 
   def back_total
     sum = 0
-    self.backs.each do |back|
+    self.backs.includes(user: :backs).each do |back|
       sum += back.amount
     end
     sum

@@ -14,7 +14,7 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "bootstrap-sprockets";
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
 
 $startgreen : #00FA9A;
 
@@ -193,6 +193,7 @@ ul.project-stat li{
   background: #33CCFF;
   font-size: 20px;
   color: white;
+  margin-top:10px;
 }
 
 .create-pledge-button{
@@ -252,12 +253,49 @@ ul.project-stat li{
 .category-list{
 }
 
+
 .category-list button{
   list-style: none;
   display: inline;
   padding: 5px;
   margin-bottom: 5px;
   font-size: 16px;
+}
+.category-list a {
+  width: 80px;
+  height: 34px;
+  position: relative;
+  padding: 0;
+  overflow:hidden;
+}
+.before, .after {
+  width: 80px;
+  display:block;
+  padding: 6px 0;
+  position:absolute;
+  top: 0;
+  text-align:center;
+  transition:.3s;
+}
+
+.before {
+  left:0%;
+}
+.after {
+  left: 100%;
+  color: $startgreen;
+}
+
+.category-list a:hover .before {
+  left: -100%;
+}
+.category-list a:hover .after {
+  left: 0%;
+}
+
+.category-list a span{
+  margin: 0 auto;
+  text-align: center;
 }
 .category-list a:hover{
  text-decoration: none;

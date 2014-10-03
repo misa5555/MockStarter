@@ -43,6 +43,15 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def discover
+    @projects = Project.all.to_a
+    category_count = Hash.new(0)
+    @projects.each do |project|
+      category_count[project.category_id] += 1
+    end
+    render :discover, locals: {category_count: category_count, a: 1}
+  end
+
   def backer_index
     @backers = Project.find(params[:project_id]).backers
   end
