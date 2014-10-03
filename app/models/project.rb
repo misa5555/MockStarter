@@ -31,7 +31,10 @@ class Project < ActiveRecord::Base
     :project_photo,
     :content_type => /\Aimage\/.*\Z/
   )
- 
+  def full_comments
+    self.comments.includes(:author)
+  end
+
   def backer?(user)
     self.backers.include?(user)
   end

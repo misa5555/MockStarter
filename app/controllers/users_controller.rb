@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- before_filter :require_user_signin!, only: [:edit, :update]
+ before_filter :require_user_signin!, only: [:show, :edit, :update]
  before_filter :require_users_own_signin!, only: [:edit, :update]  
   
   def new
@@ -18,7 +18,9 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(projects: :backs, support_projects: :backs).find(params[:id])
+    @support_projects = @user.support_projects
+    @projects = @user.projects
     render :show
   end
   
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+ 
   private
   def user_params
     params.require(:user).permit(:password, :username, :avator, :description)

@@ -3,8 +3,8 @@
   <div class="profile-photo"><%= image_tag @user.avator.url(:big) %></div>
   <p class="profile-description"><%= @user.description %></p>
   <div class="profile-stats">
-    <h4>Backed <%= @user.support_projects.uniq.count %> projects</h4>
-    <h4>Created <%= @user.projects.uniq.count%> projects</h4> 
+    <h4>Backed <%= @support_projects.uniq.count %> projects</h4>
+    <h4>Created <%= @projects.uniq.count%> projects</h4> 
   </div>
   <div class="tabbable">
     <ul class="nav nav-tabs">
@@ -13,12 +13,12 @@
     </ul>
     <div class="tab-content">
       <div id="pane1" class="tab-pane active">
-        <% @user.support_projects.each do |project| %>
+        <% @support_projects.each do |project| %>
           <%= render "projects/project_thumbnail", project: project %>
         <% end %>   
       </div>
       <div id="pane2" class="tab-pane">
-        <% @user.projects.each do |project| %>
+        <% @projects.each do |project| %>
           <%= render "projects/project_thumbnail", project: project %>
         <% end %>   
       </div>

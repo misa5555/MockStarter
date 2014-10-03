@@ -62,6 +62,7 @@ class User < ActiveRecord::Base
   def backing_to(project)
     self.backs.where(project_id: project.id).first
   end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)

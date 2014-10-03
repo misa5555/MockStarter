@@ -22,7 +22,8 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    @project = Project.find(params[:id])
+    @project = Project.includes(:backers, :comments).find(params[:id])
+
     tagname = Rails.application.config.categories[@project.category_id] 
     render :show, :locals => { :tagname => tagname}
   end
@@ -46,9 +47,6 @@ class ProjectsController < ApplicationController
     @backers = Project.find(params[:project_id]).backers
   end
 
-  def discover
-  end
-  
   private
   def project_params
     params.require(:project).permit(:title, :target_amount, :end_date, :category_id, :description, :project_photo)
