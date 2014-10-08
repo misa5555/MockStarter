@@ -27,5 +27,3 @@ Technologies
 * Paperclip
 * Amazon S3
 * Kaminari
-\
-
