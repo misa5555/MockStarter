@@ -1,11 +1,14 @@
+=====
 MOCK STARTER
 =====
 
+-----
 About
 -----
 MOCK STARTER is a KICK STARTER clone, built by Ruby on Rails, Backbone.js and Jquery.
 Visit site at http://www.mockstarter.net
 
+-----
 Features
 -----
 * Full authentication and secure storage of user data
@@ -16,6 +19,7 @@ Features
 * Limited permisson to edit projects.(only for project creator)
 * Advanced search capabilities(discover function) to filter and sort the projects.
 
+-----
 Technologies
 -----
 * PostgreSQL
